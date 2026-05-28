@@ -1,0 +1,95 @@
+#Contato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 4rem;
+  gap: 5.75rem;
+}
+
+#Contato header {
+  display: grid;
+  gap: 1.5rem;
+  text-align: center;
+  max-width: 33rem;
+}
+
+#Contato p {
+  color: var(--second-text-color);
+}
+
+#Contato strong {
+  color: var(--primary-color);
+  font-weight: var(--fw-bold);
+}
+
+#Contato .even-columns {
+  gap: 2rem;
+}
+
+@media (width > 1280px) {
+  #Contato {
+    padding-block: 7.5rem;
+  }
+
+  #Contato header > span > h2 {
+    font-size: var(--fs-sm);
+    color: var(--primary-color);
+  }
+}
+
+/* formulario */
+.comunicado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--fs-lg);
+  max-width: var(--width-custom);
+}
+
+.botao {
+  background-color: var(--azul-claro);
+  width: var(--btn-width);
+  height: var(--btn-height);
+  border-radius: var(--btn-radius);
+}
+
+input {
+  width: var(--width-custom);
+  height: var(--height-custom);
+  background-color: var(--light-gray);
+  padding: 10px;
+}
+
+@media (width < 1280px) {
+  .comunicado > input {
+    width: 324px;
+    height: 58px;
+  }
+}
+
+.textocurto {
+  display: none;
+}
+
+.placeholder_mobile {
+  display: none;
+}
+
+@media (max-width: 1280px) {
+  .textolongo {
+    display: none;
+  }
+  
+  .textocurto {
+    display: inline;
+  }
+
+.placeholder_desketop {
+    display: none;
+  }
+
+  .placeholder_mobile {
+    display: inline;
+  }
+}

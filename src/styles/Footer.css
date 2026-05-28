@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#footer {
+background-color: var(--footer-cor);
+width: 100%;
+height: auto;
+display: flex;
+justify-content: space-around;
+align-items: center;
+flex-direction: column;
+}
+
+.Redesociais{
+display: flex;
+flex-direction: row;
+margin-top: 50px;
+
+gap: 50px;
+}
+
+.Copyright{
+    text-align: center;
+    padding: 20px;
+}
+
+.logomarca,
+.Empresa,
+.Funcionalidades,
+.Recursos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Copyright{
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: var(--primary-color);
+    width:100%;
+    color: var(--light-text-color);
+}
+
+@media (width < 1280px) {
+
+#footer{
+background-color: var(--primary-color);
+}
+
+.Redesociais{
+flex-direction: column;
+}
+}
