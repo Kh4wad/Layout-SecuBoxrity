@@ -9,8 +9,8 @@ import Instagram from "../assets/instagram 1.png";
 import Logo from "../assets/logo.svg";
 import Menu from "../assets/menu.svg"; // ./ -> olha para pasta que esta pages  ../ -> sai da pasta vai para a pasta que guarda a pasta que voce esta
 import ProfileImageOne from "../assets/Pessoa1.png";
-import RectangleOne from "../assets/RectangleOne.png";
-import RectangleTwo from "../assets/RectangleTwo.png";
+import RectangleOne from "../assets/RectangleOne.svg";
+import RectangleTwo from "../assets/RectangleTwo.svg";
 import Youtube from "../assets/youtube 1.png";
 import Button from "../components/Button";
 import Card from "../components/Card";
@@ -195,8 +195,8 @@ export default function Home() {
         </header>
         <section className="even-columns">
           <Card img={Box} subtitulo="Caixas seguras" descricao="Usamos rastreador de encomendas, analise de identidade por toque e alerta de roubo a autoridades por dispositivos embutidos ou aplicativos." />
-          <Card img={Caminhao} subtitulo="Entregas mais seguras" descricao="Com a nossa tecnologia podemos diminuir os casos de entregas em lugares incorretos, garantindo que suas encomendas cheguem onde devem estar." />
-          <Card img={Escudo} subtitulo="Embalagens e segurança" descricao="Nossas embalagens são projetadas para garantir a integridade e segurança de seus produtos durante o transporte e à prova de água." />
+          <Card img={Caminhao} subtitulo="Entregas mais seguras" descricao="Com a nossa tecnologia podemos diminuir os casos de entregas em lugares incorretos, garantindo que suas encomendas cheguem onde devem estar. Chega de preocupações" />
+          <Card img={Escudo} subtitulo="Embalagens e segurança" descricao="Nossas embalagens são projetadas para garantir a integridade e segurança de seus produtos durante o transporte e à prova de água, impedindo danos durante e após a entrega." />
         </section>
       </section>
       {/* Continuar daqui */}
@@ -355,7 +355,7 @@ export default function Home() {
             <span className="plan">
               <h3>Premium</h3>
               <p>
-                Analise de reconhecimento por digital, rastreamento de encomendas e alerta de roubo a autoridades por dispositivos embutidos ou aplicativos.
+                Analise de reconhecimento por digital na embalagem, rastreamento de encomendas e alerta de roubo a autoridades por dispositivos embutidos ou aplicativos.
               </p>
             </span>
             <span className="price">
@@ -382,7 +382,7 @@ export default function Home() {
            <div className="pricing-card">
             <span className="plan">
               <h3>Medio</h3>
-              <p>Você tem direito a usar nosso aplicativo de localizador de encomendas e reconhecimento por digital</p>
+              <p>Você tem direito a usar nosso aplicativo de localizador de encomendas e reconhecimento por digital na embalagem</p>
             </span>
             <span className="price">
             <h2>R$ 30,00</h2>
@@ -419,7 +419,7 @@ export default function Home() {
             <h2>Empresa</h2>
             <div className="Empresa">
               <a href="#">Sobre nos</a>
-              <a href="#">Faca parte do time</a>
+              <a href="#">Participe da equipe</a>
               <a href="#">Blog</a>
             </div>
           </div>
