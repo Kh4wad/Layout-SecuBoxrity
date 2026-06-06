@@ -5,12 +5,17 @@ import Check from "../assets/Check.png";
 import Close from "../assets/close.svg";
 import Escudo from "../assets/Escudo.svg";
 import Facebook from "../assets/facebook 1.png";
+import Garfield from "../assets/Garfield.webp";
+import Goku from "../assets/goku.webp";
 import Instagram from "../assets/instagram 1.png";
+import Julius from "../assets/Julius.jpg";
 import Logo from "../assets/logo.svg";
 import Menu from "../assets/menu.svg"; // ./ -> olha para pasta que esta pages  ../ -> sai da pasta vai para a pasta que guarda a pasta que voce esta
-import ProfileImageOne from "../assets/Pessoa1.png";
 import RectangleOne from "../assets/RectangleOne.svg";
 import RectangleTwo from "../assets/RectangleTwo.svg";
+import Seu_madruga from "../assets/Seu_madruga.jpg";
+import Steve from "../assets/Steve.jpg";
+import Thanos from "../assets/thanos.jpg";
 import Youtube from "../assets/youtube 1.png";
 import Button from "../components/Button";
 import Card from "../components/Card";
@@ -206,9 +211,9 @@ export default function Home() {
         <header>
           <span>
             <p className="desktop-only">
-              Conselho de quem conhece
+              Experiência de alguns de nossos clientes
             </p>
-            <h2>Cada cliente importa!</h2>
+            <h2>Depoimentos</h2>
           </span>
           <p>
             Quem nos conhece sabe do quanto somos seguros com suas encomendas, estamos tirando aquela ideia de que
@@ -221,30 +226,27 @@ export default function Home() {
           <div className="carousel-content">
             {/* Aqui replicar */}
             <TestimonialCard
-              cargo="CEO links"
-              imagem={ProfileImageOne}
-              nome="Julios"
-              quantidadEstrelas={5}
-              testemunho="Certamente o mercado chinês de eletricos está bombando, só existe
-                  uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              cargo="Lutador profissional"
+              imagem={Goku}
+              nome="Goku"
+              quantidadEstrelas={4}
+              testemunho="Agora eu sei aonde vão as esferas do dragão, com a segurança do Seguritybox eu posso ficar tranquilo sabendo que minhas esferas estão seguras e protegidas contra qualquer ameaça, seja um ladrão ou um vilão intergaláctico."
             />
 
             <TestimonialCard
-              cargo="CEO links"
-              imagem={ProfileImageOne}
-              nome="Julios"
+              cargo="Desempregado"
+              imagem={Garfield}
+              nome="Garfield"
               quantidadEstrelas={5}
-              testemunho="Certamente o mercado chinês de eletricos está bombando, só existe
-                  uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              testemunho="Agora sim posso receber minhas lasanhas sem me preocupar se alguem vai come-las antes de mim."
             />
 
             <TestimonialCard
-              cargo="CEO links"
-              imagem={ProfileImageOne}
-              nome="Julios"
-              quantidadEstrelas={5}
-              testemunho="Certamente o mercado chinês de eletricos está bombando, só existe
-                  uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              cargo="Entregador de jornais e Segurança de supermercado"
+              imagem={Julius}
+              nome="Julius"
+              quantidadEstrelas={3}
+              testemunho="Minhas encomendas nunca mais foram roubadas, pelo golpe baixo."
             />
 
 
@@ -256,30 +258,27 @@ export default function Home() {
           <div className="carousel-content">
             {/* Aqui replicar */}
             <TestimonialCard
-              cargo="CEO links"
-              imagem={ProfileImageOne}
-              nome="Julios"
-              quantidadEstrelas={5}
-              testemunho="Certamente o mercado chinês de eletricos está bombando, só existe
-                  uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              cargo="Dominador de mundos"
+              imagem={Thanos}
+              nome="Thanos"
+              quantidadEstrelas={3}
+              testemunho="Agora eu posso dominar o mundo com as joias do infinito sem que haja imprevistos."
             />
 
             <TestimonialCard
-              cargo="CEO links"
-              imagem={ProfileImageOne}
-              nome="Julios"
-              quantidadEstrelas={5}
-              testemunho="Certamente o mercado chinês de eletricos está bombando, só existe
-                  uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              cargo="Sapateiro, carpinteiro, mecânico, encanador, pintor..."
+              imagem={Seu_madruga}
+              nome="Seu Madruga"
+              quantidadEstrelas={4}
+              testemunho="Que bom que minhas encomendas são entregues na minha casa e não na da Dona Florinda, realmente o localizador de encomenda é muito útil. Isto se outra pessoa pegar minha a minha encomenda por engano."
             />
 
             <TestimonialCard
-              cargo="CEO links"
-              imagem={ProfileImageOne}
-              nome="Julios"
+              cargo="Minerador, construtor de pirâmides, caçador de tesouros..."
+              imagem={Steve}
+              nome="Steve"
               quantidadEstrelas={5}
-              testemunho="Certamente o mercado chinês de eletricos está bombando, só existe
-                  uma coisa melhor do que isso, provar uma boa comida DonaFrost no almoço."
+              testemunho="Agora eu sei em quem devo confiar os meus diamantes."
             />
 
 

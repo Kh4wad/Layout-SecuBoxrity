@@ -1,5 +1,4 @@
-import Star from "../assets/Meio_estrela.png";
-import ProfileImageOne from "../assets/Pessoa1.png";
+import Star from "../assets/Estrelas.png";
 import Meio_estrela from "../assets/Meio_estrela.png";
 
 interface TestimonialCardProps {
@@ -17,7 +16,7 @@ export default function TestimonialCard(props: TestimonialCardProps) {
   return (
 
     <div className="carousel-card">
-      <img src={ProfileImageOne} alt="Imagem perfil cliente" />
+      <img src={props.imagem} alt="Imagem perfil cliente" />
       <span className="testimony">
         <p>
           {props.testemunho}
@@ -33,9 +32,8 @@ export default function TestimonialCard(props: TestimonialCardProps) {
       </span>
       <span className="names">
         <p>{props.nome}</p>
-        <p>{props.testemunho}</p>
+        <p>{props.cargo}</p>
       </span>
     </div>
   );
 }
-
