@@ -34,6 +34,7 @@ const handler: Handler = async (event: HandlerEvent) => {
   }
 
   let payload: ContactPayload;
+
   try {
     payload = JSON.parse(event.body ?? "{}");
   } catch {
@@ -50,11 +51,14 @@ const handler: Handler = async (event: HandlerEvent) => {
     return {
       statusCode: 422,
       headers: corsHeaders(origin),
-      body: JSON.stringify({ error: "Campos obrigatórios: email, message." }),
+      body: JSON.stringify({
+        error: "Campos obrigatórios: email, message.",
+      }),
     };
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   if (!emailRegex.test(email)) {
     return {
       statusCode: 422,
@@ -91,17 +95,21 @@ const handler: Handler = async (event: HandlerEvent) => {
     return {
       statusCode: 200,
       headers: corsHeaders(origin),
-      body: JSON.stringify({ message: "E-mail enviado com sucesso." }),
+      body: JSON.stringify({
+        message: "E-mail enviado com sucesso.",
+      }),
     };
   } catch (error) {
     console.error("Erro ao enviar e-mail:", error);
+
     return {
       statusCode: 500,
       headers: corsHeaders(origin),
-      body: JSON.stringify({ error: "Falha ao enviar o e-mail. Tente novamente mais tarde." }),
+      body: JSON.stringify({
+        error: "Falha ao enviar o e-mail. Tente novamente mais tarde.",
+      }),
     };
   }
 };
 
 export { handler };
-
