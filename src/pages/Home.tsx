@@ -18,7 +18,7 @@ import Steve from "../assets/Steve.jpg";
 import Thanos from "../assets/thanos.jpg";
 import Youtube from "../assets/youtube 1.png";
 import Button from "../components/Button";
-import Card from "../components/Card";
+import Card from "../components/Card";;
 import "../styles/Entrarcontato.css";
 import "../styles/Footer.css";
 import "../styles/header.css";
@@ -77,7 +77,7 @@ export default function Home() {
     <main>
       <header className="container py-sm">
         <nav className="flex items-center justify-between">
-          <img src={Logo} alt="Arrumado.svg" width={220} height={80} />
+          <img src={Logo} alt="Logo" width={220} height={80} />
 
           <div className="desktop-only">
             <ul className="flex gap-1">
@@ -134,7 +134,7 @@ export default function Home() {
                         onClick={() => setShowMobileMenu(!showMobileMenu)}
                         href="#solution"
                       >
-                        Solucao
+                        Soluções
                       </a>
                     </li>
 
@@ -454,7 +454,7 @@ export default function Home() {
       <footer id="footer">
         <section className="Redesociais">
           <div className="logomarca">
-            <img src="src/assets/logo.svg" alt="Logo securitybox" />
+            <img src={Logo} alt="Logo securitybox" />
             <div className="redes">
               <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
                 <img src={Instagram} alt="Instagram" />
