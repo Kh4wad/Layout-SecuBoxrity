@@ -77,7 +77,7 @@ const handler: Handler = async (event: HandlerEvent) => {
     },
   });
 
-   try {
+  try {
     await transporter.sendMail({
       from: `SecurityBox <${process.env.SMTP_USER}>`,
       replyTo: email,
@@ -91,26 +91,16 @@ const handler: Handler = async (event: HandlerEvent) => {
         <p>${message.replace(/\n/g, "<br>")}</p>
       `,
     });
+
     return {
       statusCode: 200,
       headers: corsHeaders(origin),
-      body: JSON.stringify({ message: "E-mail enviado com sucesso." }),
+      body: JSON.stringify({
+        message: "E-mail enviado com sucesso.",
+      }),
     };
-
   } catch (error) {
-    const err = error as NodeJS.ErrnoException & {
-      response?: string;
-      responseCode?: number;
-      command?: string;
-    };
-
-    console.error("Erro SMTP detalhado:", {
-      message: err.message,
-      code: err.code,
-      responseCode: err.responseCode,
-      response: err.response,
-      command: err.command,
-    });
+    console.error("Erro ao enviar e-mail:", error);
 
     return {
       statusCode: 500,
@@ -123,3 +113,4 @@ const handler: Handler = async (event: HandlerEvent) => {
 };
 
 export { handler };
+

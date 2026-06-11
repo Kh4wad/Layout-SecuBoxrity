@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { useEffect, useRef, useState } from "react";
+import { toast } from "react-toastify";
 import Box from "../assets/box.svg";
 import Caminhao from "../assets/Caminhao.svg";
 import Check from "../assets/Check.png";
@@ -18,7 +20,9 @@ import Steve from "../assets/Steve.jpg";
 import Thanos from "../assets/thanos.jpg";
 import Youtube from "../assets/youtube 1.png";
 import Button from "../components/Button";
-import Card from "../components/Card";;
+import Card from "../components/Card";
+import Recaptcha from "../components/ContactForm";
+import TestimonialCard from "../components/TestimonialCard";
 import "../styles/Entrarcontato.css";
 import "../styles/Footer.css";
 import "../styles/header.css";
@@ -27,9 +31,6 @@ import "../styles/Pricing.css";
 import "../styles/solution.css";
 import "../styles/testimonials.css";
 import "../styles/utility.css";
-
-import TestimonialCard from "../components/TestimonialCard";
-import "../styles/Footer.css";
 
 export default function Home() {
 
@@ -40,30 +41,57 @@ export default function Home() {
   const [textoDesktop, setTextoDesktop] = useState('');
   const [textoMobile, setTextoMobile] = useState('');
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [isChallengeCompleted, setChallengeCompleted] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState("");
 
- async function sendContactEmail(event: React.FormEvent<HTMLFormElement>) {
-  event.preventDefault();
+  const [mostrarAnimacao, setMostrarAnimacao] = useState(false);
+  const recaptchaRef = useRef<any>(null);
 
-  const response = await fetch("/.netlify/functions/send-email", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email,
-      message: textoDesktop || textoMobile,
-    }),
-  });
+  async function sendContactEmail(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
 
-  if (!response.ok) {
-    const body = await response.json().catch(() => ({}));
-    throw new Error(body.error ?? "Erro ao enviar mensagem.");
+    if (!isChallengeCompleted) {
+      return;
+    }
+
+    const mensagem = textoDesktop || textoMobile;
+
+    if (!mensagem.trim()) {
+      toast.error("Por favor, preencha o motivo do contato.");
+      return;
+    }
+
+    const response = await fetch("/.netlify/functions/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        message: textoDesktop || textoMobile,
+        captchaToken,
+      }),
+    });
+
+    if (!response.ok) {
+      const body = await response.json().catch(() => ({}));
+      throw new Error(body.error ?? "Erro ao enviar mensagem.");
+    }
+
+    console.log("Enviado com sucesso!");
+    toast.success("E-mail enviado com sucesso!");
+
+    //animacao da caixa
+    setMostrarAnimacao(true);
+    setTimeout(() => {
+      setMostrarAnimacao(false);
+    }, 5000);
+
+    setEmail("");
+    setTextoDesktop("");
+    setTextoMobile("");
+    setChallengeCompleted(false);
+    setCaptchaToken("");
+    recaptchaRef.current?.reset();
   }
-
-  console.log("Enviado com sucesso!");
-
-  setEmail("");
-  setTextoDesktop("");
-  setTextoMobile("");
-}
 
   useEffect(() => {
     const html = document.querySelector("html");
@@ -72,6 +100,16 @@ export default function Home() {
     }
   }, [showMobileMenu]);
 
+  function handleCompleteChallenge(token: string | null) {
+    if (!token) {
+      setChallengeCompleted(false);
+      setCaptchaToken("");
+      return;
+    }
+
+    setCaptchaToken(token);
+    setChallengeCompleted(true);
+  }
 
   return (
     <main>
@@ -362,8 +400,33 @@ export default function Home() {
             onChange={(e) => setTextoMobile(e.target.value)}
           />
 
+          <Recaptcha
+            ref={recaptchaRef}
+            onChange={handleCompleteChallenge}
+          />
+
           <button className="botao" type="submit">Enviar</button>
         </form>
+
+        {mostrarAnimacao && (
+          <div
+            className="animacao-sucesso"
+            style={{
+              width: "300px",
+              height: "300px",
+              position: "fixed",
+              bottom: "20px",
+              right: "20px",
+              zIndex: 9999,
+            }}
+          >
+            <DotLottieReact
+              src="/Caixa_animado.json"
+              loop={false}
+              autoplay
+            />
+          </div>
+        )}
       </section>
 
       {/* Planos */}
